@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ac21/dev-vm-ruby5"
+  config.vm.box = "ac21/dev-vm-rails5"
 
   config.vm.box_check_update = true
 
