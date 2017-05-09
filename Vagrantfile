@@ -15,8 +15,6 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "../", "/home/ubuntu/repos"
 
   config.ssh.forward_agent = true
-  config.ssh.username = "vagrant"
-  config.ssh.password = "vagrant"
 
   # Enable provisioning with a shell script.
   # config.vm.provision "shell", inline: <<-SHELL
