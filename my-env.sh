@@ -11,3 +11,6 @@ alias ls='ls --color=auto -G'
 alias ll='ls --color=auto -G -al'
 alias tmux_base='tmux new-session "tmux source-file $VAGRANT/.tmux_session"'
 
+# add heroku
+
+export PATH=/usr/local/heroku/bin:$PATH
