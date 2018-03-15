@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# configure apyy
+WINDOW=apyy
+cd ~/repos/$WINDOW
+tmux -2 new-session -d
+tmux rename-window $WINDOW
+tmux splitw -h -p 33
+tmux splitw -v -t 1
+tmux send -t $WINDOW.0 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.1 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.2 "export $(xargs -a .env)" Enter
+
+
+# configure hapyyness
+WINDOW=hapyyness
+cd ~/repos/$WINDOW
+tmux neww -n $WINDOW
+tmux splitw -h -p 33
+tmux splitw -v -t 1
+tmux send -t $WINDOW.0 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.1 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.2 "export $(xargs -a .env)" Enter
+
+# configure apyy-sdk
+WINDOW=sdk
+cd ~/repos/apyy-sdk-ruby
+tmux neww -n $WINDOW
+tmux splitw -h -p 33
+tmux splitw -v -t 1
+tmux send -t $WINDOW.0 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.1 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.2 "export $(xargs -a .env)" Enter
+
+# move back to main window
+tmux selectw -t 1
+tmux selectp -t 0
+tmux attach
