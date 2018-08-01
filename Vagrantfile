@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
       vb.name = "dev-vm-rails5"
-      vb.memory = "1024"
+      vb.memory = "2048"
       vb.cpus = 1
       vb.customize ['modifyvm', :id, "--vram", "16"]
       vb.customize [ "guestproperty", "set", :id, "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold", 5000]
@@ -18,8 +18,8 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = 'dev-vm'
 
   config.vm.network 'private_network', ip: '192.168.101.99'
-  config.vm.synced_folder '../', '/home/vagrant/repos', nfs: true
-  config.vm.synced_folder '.', '/vagrant', nfs: true
+  config.vm.synced_folder '../', '/home/vagrant/repos'
+  config.vm.synced_folder '.', '/vagrant'
 
   config.ssh.forward_agent = true
 
