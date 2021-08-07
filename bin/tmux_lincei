@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# configure apyy
+WINDOW=lincei
+FILE=lincei
+cd ~/repos/$FILE
+tmux -2 new-session -d
+tmux rename-window $WINDOW
+tmux splitw -h -p 66
+tmux splitw -h -p 50 -t 1
+tmux splitw -v -t 0
+tmux splitw -v -t 1
+tmux splitw -v -t 2
+tmux send -t $WINDOW.0 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.1 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.2 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.3 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.4 "export $(xargs -a .env)" Enter
+tmux send -t $WINDOW.5 "export $(xargs -a .env)" Enter
+
+
+# move back to main window
+tmux selectp -t 0
+tmux attach
